@@ -1,0 +1,7 @@
+*.backup
+*.aux
+*.out
+*.toc
+*.lof
+*.log
+listings.tex
