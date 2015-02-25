@@ -4,4 +4,6 @@
 *.toc
 *.lof
 *.log
+*.bcf
+*.run.xml
 listings.tex

@@ -19,7 +19,11 @@
 \RequirePackage{mdframed}
 \RequirePackage{minted}
 \RequirePackage{siunitx}
+\RequirePackage[backend=bibtex]{biblatex}
+\RequirePackage{csquotes}
 \RequirePackage{hyperref}
+
+\sisetup{inter-unit-product=\ensuremath {{} \cdot {}}, output-decimal-marker={,}}
 
 % --- Informations sur le PDF ---
 
@@ -34,7 +38,7 @@
 
 \pagestyle{fancy}
 
-\headheight13.6pt
+\headheight14.195pt
 
 \fancyfoot{}
 \lfoot{Dossier de TPE --- Releveur de données météorologiques}
@@ -55,6 +59,10 @@
 {%
 	\newpage
 }
+
+% --- Espacement ---
+
+\newcommand{\Espace}{\addvspace{2\baselineskip}}
 
 % --- Pour afficher les codes ---
 

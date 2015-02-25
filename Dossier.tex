@@ -1,19 +1,32 @@
 \documentclass{dossier-tpe}
 
+\bibliography{Bibliographie}
+\nocite{*}
+
 \begin{document}
 
 \pagenumbering{roman}
+\input{Parties/Page_garde.tex}
 
-\input{Page_garde.tex}
-
-\begingroup
-\let\clearpage\relax
-\input{Resume}
+\input{Parties/Resume}
 \tableofcontents
 \listoffigures
-\endgroup
 
 \cleardoublepage
 \pagenumbering{arabic}
+
+\input{Parties/Presentation}
+\input{Parties/Electronique}
+
+\printbibliography
+
+\makeatletter
+\setcounter{chapter}{0}%
+\setcounter{section}{0}%
+\gdef\@chapapp{\appendixname}%
+\gdef\thechapter{\@Alph\c@chapter}
+\makeatother
+
+\input{Parties/Annexes}
 
 \end{document}
