@@ -10,15 +10,22 @@
 
 \input{Parties/Resume}
 \tableofcontents
-\listoffigures
+\begingroup
+	\let\clearpage\relax
+	\listoffigures
+	\listoftables
+\endgroup
 
 \cleardoublepage
 \pagenumbering{arabic}
 
 \input{Parties/Presentation}
 \input{Parties/Electronique}
+\input{Parties/BDD}
+\input{Parties/Site_Web}
+\input{Parties/Installation_serveur}
 
-\printbibliography
+\printbibliography[title=Webographie]
 
 \makeatletter
 \setcounter{chapter}{0}%

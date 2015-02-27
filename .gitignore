@@ -3,7 +3,12 @@
 *.out
 *.toc
 *.lof
+*.lot
 *.log
 *.bcf
 *.run.xml
-listings.tex
+*-blx.bib
+*.bbl
+*.blg
+*.pyg
+*.cpt

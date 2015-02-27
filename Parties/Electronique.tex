@@ -26,11 +26,11 @@ Il existe une multitude de carte Arduino. Pour nos besoins, nous allons utiliser
 
 Pour programmer un Arduino, il faut utiliser un ordinateur avec l'IDE\footnote{Disponible sur \url{http://arduino.cc/en/Main/Software}.} du constructeur. Après l'avoir installé et configuré pour qu'il programme la bonne carte, nous pouvons y insérer du code.
 
-La langage pour programmer un Arduino est très proche du C++, il s'agit en fait d'une surcouche. De ce fait, ce langage intègre la programmation orientée objet qui est très utile quand on veut développer : cela permet d'écrire du code plus compréhensible.
+La langage pour programmer un Arduino est très proche du C++, il s'agit en fait d'une surcouche. De ce fait, ce langage intègre la programmation orientée objet qui est très utile quand on veut développer : cela permet d'écrire du code plus compréhensible. Nous avons appris à nous en servir grâce au tutoriel \cite{tuto-arduino} sur Zeste de Savoir.
 
 La structure d'un code Arduino se divise essentiellement en 2 parties : la première pour initialiser les différents composants, la seconde contient le code qui doit s'exécuter en boucle. Ainsi, pour faire clignoter une LED raccordée à la sortie 13, on peut téléverser le code suivant à l'Arduino.
 
-\FichierCode{C++}{Codes/Exemple_Arduino.ino}
+\FichierCode{C++}{Codes/Arduino/Exemple_Arduino.ino}
 
 Comme vous pouvez le voir, le code est relativement simple. C'est pourquoi les plateformes Arduino sont conseillés pour les débutants (comme nous) en électronique. Dans ce code, il est possible d'ajouter des conditions avec \verb-if .. elseif ... else ...- ou des boucles \verb-for- ou \verb-while- pour faire des exemples plus complets.
 
@@ -72,6 +72,8 @@ Comme vu dans le premier chapitre, notre capteur se doit de capter le températu
 
 Ce capteur se relie alors à une borne \verb-I2C- et le \emph{shield} se place sur l'Arduino. L'avantage de celui-ci est de permettre un cablage facile sans rajout de composants électroniques.
 
+D'après le wiki de Seeed Studio \cite{wiki:capteur}, l'étendue de mesure de ce capteur va de \SI{-40}{\celsius} à \SI{85}{\celsius} et il est précis à \SI{2}{\celsius} près : cela ne satisfait pas totalement notre cahier des charges initial mais suffira pour notre utilisation.
+
 \subsubsection{Protocole I\up 2C}
 
 Le capteur BMP180 se pilote à l'aide du protocole I\up 2C. Ce protocole est un bus série crée par Philips. Les échanges d'informations se font toujours entre un seul maître et un seul esclave (ici, l'Arduino et le capteur respectivement). La connexion des composants I\up 2C se fait par l'intermédiaire de trois fils :
@@ -88,15 +90,15 @@ Pour communiquer avec le capteur, il va falloir programmer l'Arduino. Pour cela,
 
 Dans notre code, il faut inclure le fichier \verb-Barometer.h- qui correspond à l'en-tête de la bibliothéque. Ensuite, il faut déclarer le capteur puis relever ses données. Voici un exemple de code qui permet de capter la température et la pression.
 
-\FichierCode{C++}{Codes/Exemple_BMP180.ino}
+\FichierCode{C++}{Codes/Arduino/Exemple_BMP180.ino}
 
 \Espace
 
 Comme nous allons envoyer les données sur le serveur tous les quartes d'heures, nous préférons prendre une température et une pression toutes les \SI{90}{\second} et faire la moyenne de toutes les valeurs reçues au bout de \SI{15}{\minute}. Cela évitera les valeurs extrèmes et augmentera la fidélité des relevés. Pour se faire, nous utilisons un boucle \verb-for- allant de 0 à 9 (ce qui fait 10 relevés car $10 \times \SI{90}{\second} = \SI{15}{\minute}$). À l'intérieur, nous faisons la somme des relevés. Puis nous divisons par 10 cette somme. Voici un exemple uniquement pour la température.
 
-\FichierCode{C++}{Codes/Moyenne_temperature.ino}
+\FichierCode{C++}{Codes/Arduino/Moyenne_temperature.ino}
 
-\section{Faire communiquer l'Arduino au réseau Ethernet}
+\section{Connexion de l'Arduino au réseau Ethernet}
 
 Un des côtés essentiels de notre projet est de pouvoir communiquer les données sur Internet. Pour faire communiquer l'Arduino à Internet, il est possible de lui ajouter un \emph{shield} comportant une carte réseau. Pour notre projet, nous utilisons le shield Ethernet V2.0 de Seeed Studio.
 
@@ -108,6 +110,22 @@ Un des côtés essentiels de notre projet est de pouvoir communiquer les donnée
 
 Ce \emph{shield} est composé d'une puce W5200 qui permet de lancée des requêtes TCP/UDP sur un réseau Ethernet. Il faut bien évidement le relier à un \emph{switch} ou à une \emph{box} par un câble Ethernet.
 
+Pour programmer ce \emph{shield}, il faut aussi utiliser la bibliothéque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Ethernet_Shield_W5200}.} proposée par Seeed Studio. Le code suivant permet de charger une page (ici, \verb-google.fr-) et de nous retourner cette page.
+
+\FichierCode{C++}{Codes/Arduino/Exemple_Ethernet.ino}
+
+Pour initialiser l'Ethernet V2.0, il faut lui assigner une adresse MAC unique comme on le fait à la ligne 7. Une adresse MAC est un identifiant unique stocké dans la carte réseau.
+
+Revenons sur le code allant de la ligne 34 à 44. Tout d'abord, il faut savoir que chaque serveur ont des ports d'ouvert, le port pour le serveur Web, le logiciel qui délivre le site, est le 80. Ainsi, à la ligne 34, on se connecte à \verb-serveur- en écoutant le port 80. Ensuite, on essaye de faire un requête HTTP pour avoir le contenu de la racine du site.
+
+\section{Mise en place du programme final}
+
+Ainsi, pour notre projet, nous devons associer les deux codes : celui pour la capteur et celui pour l'Ethernet. Pour pouvoir transférer les données à la base de données, nous allons appeler un script PHP situé sur le serveur que nous détaillerons dans le chapitre [référence nécessaire]. Ce script se présente sous la forme suivant.
+
+\FichierCode{Text}{Codes/URL_Arduino.txt}
+
+Ici, par cet appel, une entrée avec le temps courant, la température de \SI{21}{\celsius} et la pression de \SI{10079}{\hecto\pascal} seront ajouter dans la base. Le premier argument sert pour sécuriser son accès.
+
 \Espace
 
-Pour programmer ce \emph{shield}, il faut aussi utiliser la bibliothéque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Ethernet_Shield_W5200}.} proposée par Seeed Studio.
+Le code complet se trouve en annexe à la page \pageref{code:arduino}. En téléversant ce code sur l'Arduino, il va capter une température et une pression toute les \SI{90}{\second}. Au bout de \SI{15}{\minute}, il fait la moyenne de 10 valeurs. Enfin, il fait une requête et charge la page qui ajoute les données dans la base.

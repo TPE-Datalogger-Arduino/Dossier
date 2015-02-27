@@ -11,19 +11,30 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 \RequirePackage{textcomp}
+\RequirePackage{eurosym}
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage[usenames, dvipsnames]{xcolor}
 \RequirePackage{graphicx}
+\RequirePackage[figuresright]{rotating}
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
 \RequirePackage{tikz}
 \RequirePackage{mdframed}
+\RequirePackage{cprotect}
 \RequirePackage{minted}
 \RequirePackage{siunitx}
 \RequirePackage[backend=bibtex]{biblatex}
 \RequirePackage{csquotes}
 \RequirePackage{hyperref}
 
-\sisetup{inter-unit-product=\ensuremath {{} \cdot {}}, output-decimal-marker={,}}
+\sisetup{inter-unit-product=\ensuremath{{} \cdot {}}, output-decimal-marker={,}, range-phrase={ à }}
+\DeclareSIUnit\octet{o}
+\DeclareSIUnit\EUR{\text\euro}
+
+\emergencystretch=1em
 
 % --- Informations sur le PDF ---
 
@@ -62,7 +73,7 @@
 
 % --- Espacement ---
 
-\newcommand{\Espace}{\addvspace{2\baselineskip}}
+\newcommand{\Espace}{\addvspace\baselineskip}
 
 % --- Pour afficher les codes ---
 
