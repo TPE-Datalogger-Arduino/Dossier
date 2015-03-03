@@ -7,5 +7,5 @@ for (int i(0) ; i < 10 ; i++)
   delay(90000);
 }
 
-moyenneTemperature /= NB_RELEVES;
+moyenneTemperature /= 10;
 // ...

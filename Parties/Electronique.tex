@@ -1,8 +1,8 @@
 \chapter{Partie électronique}
 
-Dans cette partie, nous nous interréserons à la partie électronique de notre projet. Elle s'acompagnera d'explications théoriques sur les différents composants que nous utilisons sur notre réalisation.
+Dans cette partie, nous nous intéresserons à la partie électronique de notre projet. Elle s'acompagnera d'explications théoriques sur les différents composants que nous utilisons sur notre réalisation.
 
-\section{Une plateforme pour reçevoir les données}
+\section{Une plateforme pour recevoir les données}
 
 Comme vu dans la partie précédente, notre projet consiste à capter, au départ, des données météorologiques. Pour faire cela, il nous faut un plateforme qui puisse communiquer avec des capteurs.
 
@@ -12,7 +12,7 @@ Naturellement, nous nous sommes tournés vers un \emph{Arduino}.
 
 Un Arduino est une plateforme possédant des entrées et des sorties. Il est organisé autour d'un microcontrôleur Atmel. Celui-ci est capable des contrôler différents récepteur comme une LED, un moteur ou encore un autre microcontrôleur. Il est capable également de recevoir et traiter des données d'un capteur. C'est dans ce cas que nous allons l'utiliser.
 
-Les entrées et les sorties sont commandés à partie d'un code compilé sur un ordinateur puis téléversé sur un microcontrôleur.
+Les entrées et les sorties sont commandés à l'aide d'un code compilé sur un ordinateur puis téléversé sur le microcontrôleur.
 
 Il existe une multitude de carte Arduino. Pour nos besoins, nous allons utiliser un \emph{Arduino Uno}. C'est une carte qui comporte 13 entrées/sorties numériques et 6 analogiques.
 
@@ -24,15 +24,15 @@ Il existe une multitude de carte Arduino. Pour nos besoins, nous allons utiliser
 
 \subsection{Programmation d'un Arduino}
 
-Pour programmer un Arduino, il faut utiliser un ordinateur avec l'IDE\footnote{Disponible sur \url{http://arduino.cc/en/Main/Software}.} du constructeur. Après l'avoir installé et configuré pour qu'il programme la bonne carte, nous pouvons y insérer du code.
+Pour programmer un Arduino, il faut utiliser un ordinateur avec l'IDE\footnote{Disponible sur \url{http://arduino.cc/en/Main/Software}.} du constructeur installé. Après l'avoir installé et configuré pour qu'il programme la bonne carte, nous pouvons y insérer du code.
 
 La langage pour programmer un Arduino est très proche du C++, il s'agit en fait d'une surcouche. De ce fait, ce langage intègre la programmation orientée objet qui est très utile quand on veut développer : cela permet d'écrire du code plus compréhensible. Nous avons appris à nous en servir grâce au tutoriel \cite{tuto-arduino} sur Zeste de Savoir.
 
-La structure d'un code Arduino se divise essentiellement en 2 parties : la première pour initialiser les différents composants, la seconde contient le code qui doit s'exécuter en boucle. Ainsi, pour faire clignoter une LED raccordée à la sortie 13, on peut téléverser le code suivant à l'Arduino.
+La structure d'un code Arduino se divise essentiellement en 2 parties : la première pour initialiser les différents composants, la seconde contient le code qui doit s'exécuter en boucle. Ainsi, pour faire clignoter une LED raccordée à la sortie 13, nous pouvons téléverser le code suivant à l'Arduino.
 
 \FichierCode{C++}{Codes/Arduino/Exemple_Arduino.ino}
 
-Comme vous pouvez le voir, le code est relativement simple. C'est pourquoi les plateformes Arduino sont conseillés pour les débutants (comme nous) en électronique. Dans ce code, il est possible d'ajouter des conditions avec \verb-if .. elseif ... else ...- ou des boucles \verb-for- ou \verb-while- pour faire des exemples plus complets.
+Comme vous pouvez le voir, le code est relativement simple. C'est pourquoi les plateformes Arduino sont conseillées pour les débutants (comme nous) en électronique. Dans ce code, il est possible d'ajouter des conditions avec \verb-if .. elseif ... else ...- ou des boucles \verb-for- ou \verb-while- pour faire des exemples plus complets.
 
 \section{Le choix du capteur}
 
@@ -40,7 +40,7 @@ Afin de relever nos données météorologiques, il nous faut un capteur.
 
 \subsection{Caractéristiques d'un capteur}
 
-Un capteur est un composant permettant de traduire une grandeur physique en un courant électrique, hydrolique, \dots{} Les capteurs sont utilisés quasiment partout et il en existe beaucoup : certains peuvent capteur le courant, le vent, la température ou encore la lumière. Il s'agit en fait d'une interface entre le monde extérieur et un circuit électronique.
+Un capteur est un composant permettant de traduire une grandeur physique en un courant électrique, hydraulique, \dots{} Les capteurs sont utilisés quasiment partout et il en existe beaucoup : certains peuvent capter le courant, le vent, la température ou encore la lumière. Il s'agit en fait d'une interface entre le monde extérieur et un circuit électronique.
 
 \paragraph{Type de sortie} Tout d'abord, il existe principalement deux types des capteurs qui se classent en fonction du leur sortie. Les capteurs analogiques sortent une tension ou une intensité qui se traduit par la valeur que capte ce composant.
 
@@ -49,7 +49,7 @@ Nous pouvons trouver également des capteurs numériques qui ne sortent pas un c
 \paragraph{Caractéristiques} Pour distinguer différents capteurs, il existe des caractéristiques :
 \begin{itemize}
 	\item l'étendue : c'est l'écart entre la plus grande et la plus petit valeur mesurable,
-	\item la résolution : c'est la plus petite variation que la capteur est capable de mesurées. Par exemple, un capteur de température capable de distinguer au maximum \SI{20,0}{\celsius} de \SI{20,1}{\celsius} à une résolution de \SI{0,1}{\celsius} ;
+	\item la résolution : c'est la plus petite variation que la capteur est capable de mesurer. Par exemple, un capteur de température capable de distinguer au maximum \SI{20,0}{\celsius} de \SI{20,1}{\celsius} à une résolution de \SI{0,1}{\celsius} ;
 	\item la sensibilité : c'est la rapport entre la variation du signal d'entrée et la variation du signal du sortie ;
 	\item l'exactitude : elle indique le pourcentage d'erreurs commises ;
 	\item la justesse : c'est l'aptitude à donner un valeur juste, c'est l'écart entre le résultat moyen et la valeur vraie ;
@@ -60,7 +60,7 @@ En fonction de ces différentes caractéristiques, nous pouvons choisir un capte
 
 \subsection{Capteur utilisé}
 
-Comme vu dans le premier chapitre, notre capteur se doit de capter le température ainsi que la pression. Au lycée, nos deux professeurs nous ont orientées vers le capteur BMP180 en particulier celui de la marque Seeed Studio. Celui-ci a une particularité, il a besoin d'un \emph{shield} pour pouvoir être branché à un Arduino.
+Comme vu dans le premier chapitre, notre capteur se doit de capter le température ainsi que la pression. Au lycée, nos deux professeurs nous ont orienté vers le capteur BMP180 en particulier celui de la marque Seeed Studio. Celui-ci a une particularité, il a besoin d'un \emph{shield} pour pouvoir être branché à un Arduino.
 
 \begin{figure}
 	\centering
@@ -70,13 +70,13 @@ Comme vu dans le premier chapitre, notre capteur se doit de capter le températu
 	\caption{Le Base Shield V2 et le BMP180}
 \end{figure}
 
-Ce capteur se relie alors à une borne \verb-I2C- et le \emph{shield} se place sur l'Arduino. L'avantage de celui-ci est de permettre un cablage facile sans rajout de composants électroniques.
+Ce capteur se relie alors à une borne \verb-I2C- et le \emph{shield} se place sur l'Arduino. L'avantage de celui-ci est de permettre un câblage facile sans rajout de composants électroniques.
 
 D'après le wiki de Seeed Studio \cite{wiki:capteur}, l'étendue de mesure de ce capteur va de \SI{-40}{\celsius} à \SI{85}{\celsius} et il est précis à \SI{2}{\celsius} près : cela ne satisfait pas totalement notre cahier des charges initial mais suffira pour notre utilisation.
 
 \subsubsection{Protocole I\up 2C}
 
-Le capteur BMP180 se pilote à l'aide du protocole I\up 2C. Ce protocole est un bus série crée par Philips. Les échanges d'informations se font toujours entre un seul maître et un seul esclave (ici, l'Arduino et le capteur respectivement). La connexion des composants I\up 2C se fait par l'intermédiaire de trois fils :
+Le capteur BMP180 se pilote à l'aide du protocole I\up 2C. Ce protocole est un bus série créé par Philips. Les échanges d'informations se font toujours entre un seul maître et un seul esclave (ici, l'Arduino et le capteur respectivement). La connexion des composants I\up 2C se fait par l'intermédiaire de trois fils :
 \begin{itemize}
 	\item la SDA (\emph{Serial Data Line}) : c'est la ligne de données ;
 	\item la SCL (\emph{Serial Clock Line}) : c'est la ligne d'horloge ;
@@ -86,9 +86,9 @@ Pour un Arduino Uno, le fils pour la SDA doit se relier au \emph{pin} A4 et la S
 
 \subsubsection{Sa programmation}
 
-Pour communiquer avec le capteur, il va falloir programmer l'Arduino. Pour cela, le constructeur du capteur nous met à disposition une bibliothéque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Grove_Barometer_Sensor}.} qui va nous faciliter le travail. Il suffit alors de décompresser l'archive dans le dossier des bibliothéques Arduino.
+Pour communiquer avec le capteur, il va falloir programmer l'Arduino. Pour cela, le constructeur du capteur nous met à disposition une bibliothèque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Grove_Barometer_Sensor}.} qui va nous faciliter le travail. Il suffit alors de décompresser l'archive dans le dossier des bibliothèques Arduino.
 
-Dans notre code, il faut inclure le fichier \verb-Barometer.h- qui correspond à l'en-tête de la bibliothéque. Ensuite, il faut déclarer le capteur puis relever ses données. Voici un exemple de code qui permet de capter la température et la pression.
+Dans notre code, il faut inclure le fichier \verb-Barometer.h- qui correspond à l'en-tête de la bibliothèque. Ensuite, il faut déclarer le capteur puis relever ses données. Voici un exemple de code qui permet de capter la température et la pression.
 
 \FichierCode{C++}{Codes/Arduino/Exemple_BMP180.ino}
 
@@ -110,7 +110,7 @@ Un des côtés essentiels de notre projet est de pouvoir communiquer les donnée
 
 Ce \emph{shield} est composé d'une puce W5200 qui permet de lancée des requêtes TCP/UDP sur un réseau Ethernet. Il faut bien évidement le relier à un \emph{switch} ou à une \emph{box} par un câble Ethernet.
 
-Pour programmer ce \emph{shield}, il faut aussi utiliser la bibliothéque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Ethernet_Shield_W5200}.} proposée par Seeed Studio. Le code suivant permet de charger une page (ici, \verb-google.fr-) et de nous retourner cette page.
+Pour programmer ce \emph{shield}, il faut aussi utiliser la bibliothèque\footnote{Disponible sur leur dépôt GitHub : \url{https://github.com/Seeed-Studio/Ethernet_Shield_W5200}.} proposée par Seeed Studio. Le code suivant permet de charger une page (ici, \verb-google.fr-) et de nous retourner cette page.
 
 \FichierCode{C++}{Codes/Arduino/Exemple_Ethernet.ino}
 
@@ -120,12 +120,14 @@ Revenons sur le code allant de la ligne 34 à 44. Tout d'abord, il faut savoir q
 
 \section{Mise en place du programme final}
 
-Ainsi, pour notre projet, nous devons associer les deux codes : celui pour la capteur et celui pour l'Ethernet. Pour pouvoir transférer les données à la base de données, nous allons appeler un script PHP situé sur le serveur que nous détaillerons dans le chapitre [référence nécessaire]. Ce script se présente sous la forme suivant.
+Ainsi, pour notre projet, nous devons associer les deux codes : celui pour la capteur et celui pour l'Ethernet. Pour pouvoir transférer les données à la base de données, nous allons appeler un script PHP situé sur le serveur que nous détaillerons dans le chapitre [référence nécessaire]. Ce script se présente sous la forme suivante.
 
 \FichierCode{Text}{Codes/URL_Arduino.txt}
 
-Ici, par cet appel, une entrée avec le temps courant, la température de \SI{21}{\celsius} et la pression de \SI{10079}{\hecto\pascal} seront ajouter dans la base. Le premier argument sert pour sécuriser son accès.
+Ici, par cet appel, une entrée avec le temps courant, la température de \SI{21}{\celsius} et la pression de \SI{10079}{\hecto\pascal} sera ajouter dans la base. Le premier argument sert pour sécuriser son accès.
 
 \Espace
 
 Le code complet se trouve en annexe à la page \pageref{code:arduino}. En téléversant ce code sur l'Arduino, il va capter une température et une pression toute les \SI{90}{\second}. Au bout de \SI{15}{\minute}, il fait la moyenne de 10 valeurs. Enfin, il fait une requête et charge la page qui ajoute les données dans la base.
+
+Cependant, il subsiste un problème : l'Arduino charge la page demandée uniquement lorsqu'il est connecté à un ordinateur par USB. Nous n'avons pas réussi à régler ce problème\dots

@@ -71,7 +71,8 @@ void loop()
   float moyennes[2] = {};
 
   /* Relevés des données */
-  for (int i(0) ; i < NB_RELEVES ; i++) // On fait la somme de 10 relevés de température et de pression.
+  for (int i(0) ; i < NB_RELEVES ; i++) // On fait la somme de 10 relevés de température
+                                        // et de pression.
   {
     moyennes[0] += capteur.bmp085GetTemperature(capteur.bmp085ReadUT()); // Température
     moyennes[1] += capteur.bmp085GetPressure(capteur.bmp085ReadUP()); // Pression

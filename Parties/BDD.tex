@@ -14,15 +14,15 @@ Une \emph{base de données} est un moyen de stocker, d'organiser et de hiérarch
 
 Il existe plusieurs moyens de stocker des données.
 \begin{itemize}
-	\item Le format texte (\verb-.txt-) est un choix assez évident pour les néophytes, il ne nécessite pas de logiciels supplémentaires. Mais il est peu efficace, un fichier devient vite encombrant, il utilise beaucoup de ressources à la lecture et à l'écriture, et chaque table nécessite un fichier séparé qui est ouvert tour à tour.
+	\item Le format texte (\verb-.txt-) est un choix assez évident pour les néophytes, il ne nécessite pas de logiciels supplémentaires. Mais, il est peu efficace, un fichier devient vite encombrant, il utilise beaucoup de ressources à la lecture et à l'écriture, et chaque table nécessite un fichier séparé qui est ouvert tour à tour.
 	
 	\item Le format texte optimisé pour les données (\verb-.csv-) ne nécessite pas de logiciels supplémentaires. C'est un moyen efficace de stocker les données quand il est bien utilisé. Mais, il a les mêmes inconvénients que le format texte.
 	
-	\item Le classeur Excel ou Calc (\verb-.xls-, \verb-.xlsx- ou \verb-.ods-) est équivalent à une base de données. Mais le fichier devient encombrant et est peu pratique à utiliser, il utilise beaucoup de ressources pour l'utilisation, il n'est pas optimisé pour être utilisé sur un serveur et il doit être créé par un logiciel externe.
+	\item Le classeur Excel ou Calc (\verb-.xls-, \verb-.xlsx- ou \verb-.ods-) est équivalent à une base de données. Mais, le fichier devient encombrant et est peu pratique à utiliser, il utilise beaucoup de ressources pour l'utilisation, il n'est pas optimisé pour être utilisé sur un serveur et il doit être créé par un logiciel externe.
 	
-	\item Le format Microsoft DataBase (\verb-.mdb-) est un format spécial base de données, il est entièrement fonctionnel sous Windows. Mais il est impossible à utiliser avec des outils gratuits et doit être créé par un logiciel externe.
+	\item Le format Microsoft DataBase (\verb-.mdb-) est un format spécial base de données, il est entièrement fonctionnel sous Windows. Mais, il est impossible à utiliser avec des outils gratuits et doit être créé par un logiciel externe.
 	
-	\item Le format OpenDocument Database (\verb-.odb-) est un format de bases de données libre. Mais tout comme le précedent, il doit être créé par un logiciel extérieur
+	\item Le format OpenDocument Database (\verb-.odb-) est un format de bases de données libre. Mais, tout comme le précédent, il doit être créé par un logiciel extérieur
 	
 	\item Enfin, le format SQL (\emph{Structured Query Language} en anglais, \verb-.sql-) est gratuit et libre. Il est issu d'un consensus entre les différentes technologies pour unifier leur utilisation. Sa connexion est simple (selon les systèmes) et les requêtes basiques sont simples mais peuvent êtres complexes suivant l'utilisation. Mais il nécessite un Système de Gestion de Base de Données (ou SGBD) comme PostrgeSQL, MySQL ou ORACLE qu'il faut installer.
 \end{itemize}
@@ -33,9 +33,9 @@ Afin de stocker les différentes données acquises par la partie électronique, 
 
 \Espace
 
-Pour notre site, nous utilisons MySQL, un Syème de Gestion de Base de Données Relationnel (SGBDR) qui peut créer et gérer des relations entre différentes tables, couplé avec le module PDO de PHP pour se connecter à la base.
+Pour notre site, nous utilisons MySQL, un Système de Gestion de Base de Données Relationnel (SGBDR) qui peut créer et gérer des relations entre différentes tables, couplé avec le module PDO de PHP pour se connecter à la base.
 
-Pour pouvoir utiliser une base de données, il faut d'abord installer le serveur MySQL, dont l'installation sera détaillée dans le chapitre [reférénce nécessaire].
+Pour pouvoir utiliser une base de données, il faut d'abord installer le serveur MySQL, dont l'installation sera détaillée dans le chapitre [référence nécessaire].
 
 Après l'installation, nous devons créer la base (que l'on nommera \verb-tpe-). Pour ce faire, dans la console MySQL ou \emph{via} phpMyAdmin (administation pour MySQL en ligne), on rentrera le requête suivante :
 \FichierCode{SQL}{Codes/SQL/Creation_BDD.sql}

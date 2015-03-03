@@ -26,7 +26,7 @@
 \RequirePackage{cprotect}
 \RequirePackage{minted}
 \RequirePackage{siunitx}
-\RequirePackage[backend=bibtex]{biblatex}
+\RequirePackage[backend=bibtex, bibencoding=ascii]{biblatex}
 \RequirePackage{csquotes}
 \RequirePackage{hyperref}
 
