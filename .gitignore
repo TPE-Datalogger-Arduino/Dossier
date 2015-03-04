@@ -10,5 +10,5 @@
 *-blx.bib
 *.bbl
 *.blg
-*.pyg
+_minted-*
 *.cpt

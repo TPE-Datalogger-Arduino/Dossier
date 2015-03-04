@@ -116,15 +116,14 @@ Pour programmer ce \emph{shield}, il faut aussi utiliser la bibliothèque\footno
 
 Pour initialiser l'Ethernet V2.0, il faut lui assigner une adresse MAC unique comme on le fait à la ligne 7. Une adresse MAC est un identifiant unique stocké dans la carte réseau.
 
-Revenons sur le code allant de la ligne 34 à 44. Tout d'abord, il faut savoir que chaque serveur ont des ports d'ouvert, le port pour le serveur Web, le logiciel qui délivre le site, est le 80. Ainsi, à la ligne 34, on se connecte à \verb-serveur- en écoutant le port 80. Ensuite, on essaye de faire un requête HTTP pour avoir le contenu de la racine du site.
+Revenons sur le code allant de la ligne 34 à 44. Tout d'abord, il faut savoir que chaque serveur ont des ports d'ouvert, le port pour le serveur Web, le logiciel qui délivre le site, est le 80. Ainsi, à la ligne 34, nous essayons de nous connecter à \verb-serveur- en écoutant le port 80. Ensuite, nous lançons un requête HTTP pour avoir le contenu de la racine du site.
 
 \section{Mise en place du programme final}
+\label{section:url-arduino}
 
-Ainsi, pour notre projet, nous devons associer les deux codes : celui pour la capteur et celui pour l'Ethernet. Pour pouvoir transférer les données à la base de données, nous allons appeler un script PHP situé sur le serveur que nous détaillerons dans le chapitre [référence nécessaire]. Ce script se présente sous la forme suivante.
-
+Ainsi, pour notre projet, nous devons associer les deux codes : celui pour la capteur et celui pour l'Ethernet. Pour pouvoir transférer les données à la base de données, nous allons appeler un script PHP situé sur le serveur que nous détaillerons dans la section \ref{section:script-arduino}. Ce script se présente sous la forme suivante.
 \FichierCode{Text}{Codes/URL_Arduino.txt}
-
-Ici, par cet appel, une entrée avec le temps courant, la température de \SI{21}{\celsius} et la pression de \SI{10079}{\hecto\pascal} sera ajouter dans la base. Le premier argument sert pour sécuriser son accès.
+Ici, par cet appel, une entrée avec le temps courant, la température de \SI{21}{\celsius} et la pression de \SI{10079}{\hecto\pascal} seront ajoutés dans la base. Le premier argument sert pour sécuriser son accès.
 
 \Espace
 

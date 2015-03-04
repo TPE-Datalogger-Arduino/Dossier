@@ -1,0 +1,9 @@
+.important { /* Définition d'une classe */
+    color: red;
+    font-weight: bold;
+}
+
+h1 { /* Redéfinition d'un style de balise ; ici, le titre h1 */
+    color: green;
+    text-decoration: underline;
+}

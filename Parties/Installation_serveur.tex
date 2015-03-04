@@ -1,4 +1,5 @@
 \chapter{Installation du serveur}
+\label{chapitre:serveur}
 
 Pour finaliser notre installation, nous avons mis en place un serveur. Un serveur est une machine informatique permettant de réceptionner des information et de les envoyer par la même occasion à un client.
 
@@ -35,12 +36,13 @@ Nous somme en réseau local donc nous devons utiliser l'adresse IP suivante 192.
 	\caption{Schéma de notre réseau local}
 \end{figure}
 
-Il nous reste plus qu'à configurer le PC et l'Arduino avec les bonnes adresses IP. Concernant l'Arduino, il suffit d'invoquer la commande \verb-Ethernet.begin(MAC, IP)- avec une adresse MAC quelconque et l'IP donnée. Pour notre serveur, il faut aller dans \og Paramètres système \fg{} puis cliquer sur \og Réseau \fg. Ensuite, il faut aller dans la partie \og Filaire \fg{} puis cliquer sur le bouton \og Option\dots \fg. Enfin, dans l'onglet \og Paramètre IPv4 \fg, nous pouvons insérer la configuration en sélectionnant \og Manuel \fg{} puis en ajoutant l'IP en cliquant sur \og Ajouter \fg{} comme le montre la figure suivante.
+Il nous reste plus qu'à configurer le PC et l'Arduino avec les bonnes adresses IP. Concernant l'Arduino, il suffit d'invoquer la commande \verb-Ethernet.begin(MAC, IP)- avec une adresse MAC quelconque et l'IP donnée. Pour notre serveur, il faut aller dans \og Paramètres système \fg{} puis cliquer sur \og Réseau \fg. Ensuite, il faut aller dans la partie \og Filaire \fg{} puis cliquer sur le bouton \og Option\dots \fg. Enfin, dans l'onglet \og Paramètre IPv4 \fg, nous pouvons insérer la configuration en sélectionnant \og Manuel \fg{} puis en ajoutant l'IP en cliquant sur \og Ajouter \fg{} comme le montre la figure \ref{fig:configuration-reseau}.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=.5\linewidth]{Images/Parametres_reseau_Linux}
 	\caption{Configuration réseau du serveur}
+	\label{fig:configuration-reseau}
 \end{figure}
 
 À l'avenir, si nous utilisons réellement notre projet, l'Arduino et le serveur n'iraient plus sur un switch mais seraient branchés sur une \emph{box}, le site et la base de données seraient hébergés dans un \emph{data-center} pour que l'utilisateur final y est accès depuis n'importe quelle connexion Internet. Ils n'auront par conséquent plus les mêmes adresses IP.

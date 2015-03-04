@@ -10,14 +10,13 @@
 #define SDCARD_CS 4
 
 #define NB_RELEVES 10 // Nombre de relevés par passage
-#define INTERVALLE 1.5 * 1000 // Intervalle entre les envois de données
+#define INTERVALLE 15 * 60 * 1000 // Intervalle entre les envois de données
 #define TEMPS INTERVALLE / NB_RELEVES // Temps entre chaque relevé
 
 Barometer capteur; // Déclaration du capteur
 
 byte MAC[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
 IPAddress IP(192, 168, 1, 3); // Adresse IP de l'Arduino
-IPAddress DNS(192, 168, 1, 1);
 
 EthernetClient client; // Déclaration du client Ethernet
 
@@ -71,8 +70,7 @@ void loop()
   float moyennes[2] = {};
 
   /* Relevés des données */
-  for (int i(0) ; i < NB_RELEVES ; i++) // On fait la somme de 10 relevés de température
-                                        // et de pression.
+  for (int i(0) ; i < NB_RELEVES ; i++) // On fait la somme de 10 relevés de température et de pression.
   {
     moyennes[0] += capteur.bmp085GetTemperature(capteur.bmp085ReadUT()); // Température
     moyennes[1] += capteur.bmp085GetPressure(capteur.bmp085ReadUP()); // Pression

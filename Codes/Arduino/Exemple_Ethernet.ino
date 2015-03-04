@@ -1,10 +1,10 @@
 #include <SPI.h>
-#include <EthernetV2_0.h> // On inclus la bibliothèque.
+#include <EthernetV2_0.h> // On inclut la bibliothèque.
 
 #define W5200_CS 10
 #define SDCARD_CS 4
 
-byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED}; // On déterminer l'adresse MAC de l'Arduino.
+byte MAC[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED}; // On donne une adresse MAC de l'Arduino.
 
 char serveur[] = "google.fr"; // Serveur vers lequel on va faire la requête.
 
@@ -15,11 +15,11 @@ void setup()
   Serial.begin(9600);
 
   /* Désactivation de la carte SD */
-  pinMode(SDCARD_CS,OUTPUT);
-  digitalWrite(SDCARD_CS,HIGH);
+  pinMode(SDCARD_CS, OUTPUT);
+  digitalWrite(SDCARD_CS, HIGH);
 
   /* On commence la connexion Ethernet. */
-  if (Ethernet.begin(mac) == 0)
+  if (Ethernet.begin(MAC) == 0)
   {
     Serial.println("Impossible de configuer la connexion Ethernet.");
 

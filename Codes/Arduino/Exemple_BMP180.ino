@@ -1,4 +1,4 @@
-#include <Barometer.h> // On inclus la bibliothéque du constructeur.
+#include <Barometer.h> // On inclut la bibliothéque du constructeur.
 #include <Wire.h>
 
 float temperature(0), pression(0); // On déclare les variables.
