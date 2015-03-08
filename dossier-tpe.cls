@@ -83,7 +83,7 @@
 \newcommand{\FichierCode}[2]
 {%
 	\begin{mdframed}[linecolor=black!50, linewidth=3pt, innerleftmargin=6pt, rightline=false, topline=false, bottomline=false, backgroundcolor=black!3]
-		\inputminted[fontsize=\footnotesize, linenos, breaklines, numbersep=15pt]{#1}{#2}
+		\inputminted[fontsize=\footnotesize, linenos, breaklines, tabsize=4, numbersep=15pt]{#1}{#2}
 	\end{mdframed}
 }
 

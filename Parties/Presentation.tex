@@ -22,7 +22,7 @@ Nous nous sommes donc penchés sur les caractéristique de nous devions mettre e
 
 \subsection{Méthode APTE}
 
-Dans un premier lieu, nous nous sommes demandés pourquoi, comment et pour qui cela pourrait servir. Nous avons donc utilisé la méthode dite \og méthode APTE \fg qui à pour but de déterminer l'utilité de notre projet. Au début, nous avons créés le diagramme bête à corne suivant.
+Dans un premier lieu, nous nous sommes demandés pourquoi, comment et pour qui cela pourrait servir. Nous avons donc utilisé la méthode dite \og méthode APTE \fg{} qui à pour but de déterminer l'utilité de notre projet. Au début, nous avons créés le diagramme bête à corne suivant.
 
 \begin{figure}[!h]
 	\centering
@@ -30,13 +30,13 @@ Dans un premier lieu, nous nous sommes demandés pourquoi, comment et pour qui c
 	\caption{Diagramme bête à corne de notre projet}
 \end{figure}
 
-Nous pouvons donc penser que les données météorologiques que nous recueillerons servirons à l'utilisateur. Celui-ci pourra alors être informé de la température et de la pression atmosphérique d'une pièce ou d'un extérieure en fonction de l'utilisation faite par celui qui s'en servira.
+Nous pouvons donc penser que les données météorologiques que nous recueillerons servirons à l'utilisateur. Celui-ci pourra alors être informé de la température et de la pression atmosphérique d'une pièce ou d'un extérieur en fonction de l'utilisation faite par celui qui s'en servira.
 
 Ensuite, il a fallu nous poser quelques questions sur ce qui pourrait conduire la disparition de ce projet. Il pourrait, par exemple, naître un nouveau projet qui puissent capter des données plus précises ou plus fidèles, qui puisse stocker plus de données, \dots{} Mais pour l'instant, nous n'avons pas vu d'autre produit comme le notre !
 
 \subsection{Diagramme des interacteurs}
 
-Suite à cela, nous devons déterminer toutes les fonctions que réalisera notre projet et ses interactions avec l'extérieur. Ainsi, nous avons réalisé le diagramme des interacteurs ou diagramme \og pieuvre \fg suivant.
+Suite à cela, nous devons déterminer toutes les fonctions que réalisera notre projet et ses interactions avec l'extérieur. Ainsi, nous avons réalisé le diagramme des interacteurs ou diagramme \og pieuvre \fg{} suivant.
 
 \begin{figure}[!h]
 	\centering
@@ -58,14 +58,14 @@ Enfin, pour terminer notre analyse fonctionnelle, nous avons regroupé toute nos
 		\midrule
 		$\mathrm{FP}_1$
 			& Doit pouvoir communiquer des informations sur le réseau Intranet/Internet
-			& Prise RJ45 et accès au réseau de lycée (admission d'adresse IP) ou réseau local & aucun & aucun \\
+			& Prise RJ45 et accès au réseau de lycée ou réseau local & aucun & aucun \\
 		\midrule
-		$\mathrm{FP}_2$
+		\multirow{2}*{$\mathrm{FP}_2$}
 			& \multirow{2}\hsize{Doit pouvoir capter des données météorologiques}
-			& Capteur de température & Précision à \SI{1}{\celsius} & $\mathrm F_2$ \\
+			& Capteur de température & Précision à \SI{1}{\celsius} & \multirow{2}*{$\mathrm F_2$} \\
 			& & Capteurs de pression & Précision à \SI{10}{\hecto\pascal} \\
 		\midrule
-		$\mathrm{FP}_3$
+		\multirow{3}*{$\mathrm{FP}_3$}
 			& \multirow{3}\hsize{Doit être facile d'installation et d'utilisation, être sécurisé pour l'utilisateur}
 			& Boîtier de protection & Étanche & $\mathrm F_0$ \\
 			& & Indicateur de mise en marche & Voyant (LED) & $\mathrm F_1$ \\
@@ -80,7 +80,7 @@ Enfin, pour terminer notre analyse fonctionnelle, nous avons regroupé toute nos
 			& Base de données & Espace inférieur à \SI{10}{\mega\octet} & $\mathrm F_2$ \\
 		\midrule
 		$\mathrm{FC}_2$
-			& Doit utiliser l'électricité pour s'alimenter en énergie & Électricité courante suivie transformateur courant continue & Tension de \SIrange{5}{12}{\volt} & $\mathrm F_0$ \\
+			& Doit utiliser l'électricité pour s'alimenter en énergie & Électricité courante suivie d'un transformateur à courant continue & Tension de \SIrange{5}{12}{\volt} & $\mathrm F_0$ \\
 		\bottomrule
 	\end{tabularx}
 	\caption{Le cahier des charges fonctionnel}
@@ -91,7 +91,7 @@ Nous avons donc déterminé, en fonction de nos attentes, les critères pour pou
 
 \subsection{Synoptique et chaîne d'information}
 
-Nous avons commencé à rentrer dans le détail de notre TPE en choisissant notre capteur, qui sera un capteur de température et de pression BMP180 et notre microcontrôleur sera un Arduino Uno pour pouvoir contrôler le capteur. En plus de ce microcontrôleur, nous mettrons un Arduino Ethernet V2.0 qui nous permettra d'envoyer les données sur la base de donnée qui se situera sur un serveur qui hébergera aussi le site Web. Un \emph{switch} sera installé entre l'Arduino et l'ordinateur, nous pourrons également brancher un deuxième ordinateur en tant que client (l'utilisateur final). Pour notre base de données, nous allons utiliser MySQL et, pour notre serveur Web, nous allons utiliser Apache. Tous ces logiciels sont présentées dans la section \ref{section:logiciels}.
+Nous avons commencé à rentrer dans les détails de notre TPE en choisissant notre capteur, qui sera un capteur de température et de pression BMP180 et notre microcontrôleur sera un Arduino Uno pour pouvoir contrôler le capteur. En plus de ce microcontrôleur, nous mettrons un Arduino Ethernet V2.0 qui nous permettra d'envoyer les données sur la base de donnée qui se situera sur un serveur qui hébergera aussi le site Web. Un \emph{switch} sera installé entre l'Arduino et l'ordinateur, nous pourrons également brancher un deuxième ordinateur en tant que client (l'utilisateur final). Pour notre base de données, nous allons utiliser MySQL et, pour notre serveur Web, nous allons utiliser Apache. Le language pour le site Web sera PHP. Tous ces logiciels sont présentées dans la section \ref{section:logiciels}.
 
 Nous avons donc représenté les interactions entre les différents composants sur un synoptique (voir figure \ref{figure:synoptique}).
 
@@ -102,7 +102,7 @@ Nous avons donc représenté les interactions entre les différents composants s
 	\label{figure:synoptique}
 \end{figure}
 
-Enfin, nous avons déterminé notre chaîne d'information (voir figure \ref{figure:ci}), de l'acquisition de la température à l'insertion de la base de données. La partie site Web ne figure pas car elle est indépendante de cette partie bien qu'il communique avec la base.
+Enfin, nous avons déterminé notre chaîne d'information (voir figure \ref{figure:ci}), de l'acquisition de la température à l'insertion dans la base de données. La partie site Web ne figure pas car elle est indépendante de cette partie bien qu'il communique avec la base.
 
 \begin{figure}[!h]
 	\centering

@@ -36,6 +36,11 @@
 \gdef\thechapter{\@Alph\c@chapter}
 \makeatother
 
-\input{Parties/Annexes}
+\cleardoublepage
+
+\begingroup
+	\let\clearpage\relax
+	\input{Parties/Annexes}
+\endgraf
 
 \end{document}
