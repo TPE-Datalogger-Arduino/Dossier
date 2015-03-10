@@ -2,7 +2,7 @@
 % Classe de notre dossier %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\LoadClass[a4paper, 11pt]{report}
+\LoadClass[a4paper, 12pt]{report}
 
 % --- Packages ---
 
@@ -29,7 +29,7 @@
 \RequirePackage[backend=bibtex, bibencoding=ascii]{biblatex}
 \RequirePackage{csquotes}
 \RequirePackage{upquote}
-\RequirePackage{hyperref}
+\RequirePackage[hypertexnames=false]{hyperref}
 
 \sisetup{inter-unit-product=\ensuremath{{} \cdot {}}, output-decimal-marker={,}, range-phrase={ à }}
 \DeclareSIUnit\octet{o}
@@ -50,7 +50,7 @@
 
 \pagestyle{fancy}
 
-\headheight14.195pt
+\headheight15.35403pt
 
 \fancyfoot{}
 \lfoot{Dossier de TPE --- Releveur de données météorologiques}

@@ -1,13 +1,88 @@
 \chapter{Code complet pour l'Arduino}
-
 \label{code:arduino}
+
 Note : Ce code est configuré pour fonctionner en réseau local.
 
 \FichierCode{C++}{Codes/Arduino/Programme_complet.ino}
 
-\chapter{Code du site Web}
+\chapter{Code complet du site Web}
+\label{code:site}
 
-Le code de notre site Web est assez long, nous ne le mettrons pas dans le dossier. Cependant, vous pouvez le consulter entièrement commenté sur notre GitHub à l'adresse
+Le code complet du site Web se trouve ci-dessous. Il est également téléchargeable sur notre dépôt GitHub :
 \begin{center}
 	\url{http://github.com/TPE-Datalogger-Arduino/Site}
 \end{center}
+
+\section{Fichiers d'inclusion}
+
+\cprotect\subsubsection{\verb-includes/settings.php-}
+
+C'est le fichier comportant les paramètres principaux du site comme le serveur de la base, le mot de passe, \dots
+\FichierCode{PHP}{Codes/TPE-Site/includes/settings.php}
+
+\cprotect\subsubsection{\verb-includes/connect.php-}
+
+C'est le fichier qui permet de se connecter à la base.
+\FichierCode{PHP}{Codes/TPE-Site/includes/connect.php}
+
+\cprotect\subsubsection{\verb-includes/sql.php-}
+
+C'est le fichier qui contient toutes les fonctions pour extraire les données de la base. (La fonction pour exporter en CSV n'a pas été expliquée mais elle est relativement simple.)
+\FichierCode{HTML+PHP}{Codes/TPE-Site/includes/sql.php}
+
+\cprotect\subsubsection{\verb-includes/head.php-}
+
+C'est l'en-tête HTML de toutes les pages.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/includes/head.php}
+
+\cprotect\subsubsection{\verb-includes/footer.php-}
+
+De-même, le pied de page.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/includes/footer.php}
+
+\section{Style et script pour le site}
+
+\cprotect\subsubsection{\verb-statics/styles/main.css-}
+
+C'est le fichier CSS principale régissant toute l'apparence du site.
+\FichierCode{CSS}{Codes/TPE-Site/statics/styles/main.css}
+
+\cprotect\subsubsection{\verb|statics/scripts/mobile-menu.js|}
+
+C'est un petit fichier JavaScript permettant de créer un menu déroulant lorsqu'on accède au site depuis un \emph{smartphone}.
+\FichierCode{JS}{Codes/TPE-Site/statics/scripts/mobile-menu.js}
+
+\section{Pages pour ajouter ou visualiser les données}
+
+\cprotect\subsubsection{\verb-arduino.php-}
+
+C'est le fichier qu'appele Arduino pour ajouter les données.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/arduino.php}
+
+\cprotect\subsubsection{\verb-index.php-}
+
+C'est la page d'accueil. Elle affiche le dernier relevé.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/index.php}
+
+\cprotect\subsubsection{\verb-donnees.php-}
+
+C'est la page pour afficher le tableau de données.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/donnees.php}
+
+\cprotect\subsubsection{\verb/exporter-csv.php/}
+
+C'est le fichier qui permet d'exporter les données au format CSV.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/exporter-csv.php}
+
+\cprotect\subsubsection{\verb-graphique.php-}
+
+C'est la page qui affiche le graphique.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/graphique.php}
+
+\section{Autres pages}
+
+\cprotect\subsubsection{\verb-403.php- et \verb-404.php-}
+
+Ce sont les pages d'erreurs.
+\FichierCode{HTML+PHP}{Codes/TPE-Site/403.php}
+\FichierCode{HTML+PHP}{Codes/TPE-Site/404.php}
