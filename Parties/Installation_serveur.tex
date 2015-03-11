@@ -13,18 +13,14 @@ Dans notre TPE, l'utilisation d'un serveur HTTP nous permet de faire fonctionner
 \Espace
 
 Avec Linux, l'installation des logiciels est très facile. Nous utilisons le logiciel XAMPP\footnote{Téléchargeable sur leur site : \url{https://www.apachefriends.org/download.html}.} : il s'agit d'un ensemble de logiciels avec Apache, MySQL, PHP et Perl (nous n'utiliserons pas ce dernier). Après l'avoir téléchargé, il suffit d'exécuter le \verb-.run- pour l'installer. Ensuite, on peut utiliser les commandes suivantes dans un terminal pour démarrer et arrêter le serveur Apache et MySQL.
-
 \FichierCode{sh}{Codes/XAMPP.sh}
-
-Ensuite, par un navigateur Web, nous pouvons y accéder avec l'adresse \verb-http://localhost-. Nous pouvons voir la page d'accueil. Il nous faut maintenant ajouter les fichiers HTML/CSS et PHP du site. Pour cela, il faut créer une nouveau dossier dans \verb-/opt/lampp/htdocs- en ayant les permissions du superutilisateur et transférer tous nos fichiers à l'intérieur.
-
+Ensuite, par un navigateur Web, nous pouvons y accéder avec l'adresse \verb-http://localhost-. Nous pouvons voir la page d'accueil. Il nous faut maintenant ajouter les fichiers HTML/CSS et PHP du site. Pour cela, il faut créer un nouveau dossier dans \verb-/opt/lampp/htdocs- en ayant les permissions du superutilisateur et transférer tous nos fichiers à l'intérieur.
 \FichierCode{sh}{Codes/Fichier_Web.sh}
-
 Nous pouvions également le faire en utilisant l'interface graphique. Ensuite, les fichiers sont accessibles par un navigateur à l'adresse \verb-http://localhost/tpe-.
 
 \section{Mise en place du réseau}
 
-Pour relier ce serveur Web avec notre Arduino, nous devons utiliser un \emph{switch}. Un \emph{switch} désigne un commutateur réseau, il s'agit d'un équipement ou un appareil qui permet l'interconnexion de différents appareils communicants entre eux. Il nous permet ici, grâce à l'Arduino Ethernet Shield, d'interconnecter nos différentes parties avec des câbles Ethernet. L'Arduino est donc relier au \emph{switch} tout comme l'ordinateur qui héberge le serveur Web.
+Pour relier ce serveur Web avec notre Arduino, nous devons utiliser un \emph{switch}. Un \emph{switch} désigne un commutateur réseau, il s'agit d'un équipement ou un appareil qui permet l'interconnexion de différents appareils communicants entre eux. Il nous permet ici, grâce à l'Arduino Ethernet Shield, d'interconnecter nos différentes parties avec des câbles Ethernet. L'Arduino est donc relié au \emph{switch} tout comme l'ordinateur qui héberge le serveur Web.
 
 Pour connecter les appareils, il faut utiliser des adresses IP pour que nous puissions les reconnaître. Il existe des adresses IP de version 4 (sur 32 bits, soit 4 octets) et de version 6 (sur 128 bits, soit 16 octets). La version 4 est actuellement la plus utilisée : elle est généralement représentée en notation décimale avec quatre nombres compris entre 0 et 255, séparés par des points, ce qui donne par exemple 212.85.150.134.
 
@@ -47,6 +43,6 @@ Il nous reste plus qu'à configurer le PC et l'Arduino avec les bonnes adresses 
 
 \Espace
 
-À l'avenir, si nous utilisons réellement notre projet, l'Arduino et le serveur n'iraient plus sur un switch mais seraient branchés sur une \emph{box}, le site et la base de données seraient hébergés dans un \emph{data-center} pour que l'utilisateur final y est accès depuis n'importe quelle connexion Internet. Par conséquent, ils n'auraient plus les mêmes adresses IP.
+À l'avenir, si nous utilisions réellement notre projet, l'Arduino et le serveur n'iraient plus sur un switch mais seraient branchés sur une \emph{box}, le site et la base de données seraient hébergés dans un \emph{data-center} pour que l'utilisateur final y est accès depuis n'importe quelle connexion Internet. Par conséquent, ils n'auraient plus les mêmes adresses IP.
 
 Nous avons mis en place notre site sur un VPS (\emph{Virtual Private Server}). Nous avons installé les différents logiciels sauf que pour le serveur Web, nous avons pris nginx et pour la base, MariaDB (une alternative libre à MySQL). Ainsi, notre site est disponible à l'adresse \url{http://tpe.teguad.ovh}.
